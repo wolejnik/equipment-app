@@ -83,7 +83,7 @@ h6 {
 
     &--subsubtitle {
       font-size: 8px;
-      color: var(--yellow);
+      color: var(--grey);
       justify-self: center;
     }
 
@@ -155,5 +155,62 @@ h6 {
       border: 2px solid var(--green);
       cursor: pointer;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 400px;
+    grid-template-rows: repeat(9, auto);
+    border-radius: 4px;
+    grid-row-gap: 10px;
+    background-color: var(--background);
+    grid-template-areas:
+      "itemtitle"
+      "itemselect"
+      "itemselectaction"
+      "itemstitlechests"
+      "itemschests"
+      "itemstitlerunes"
+      "itemsrunes"
+      "itemstitleprizes"
+      "itemsprizes"
+  }
+
+  .item--title {
+    grid-area: itemtitle;
+  }
+
+  .item--select {
+    grid-area: itemselect;
+  }
+
+  .items--title--chests {
+    grid-area: itemstitlechests;
+  }
+
+  .items--chests {
+    grid-area: itemschests;
+  }
+
+  .items--title--runes {
+    grid-area: itemstitlerunes;
+  }
+
+  .items--runes {
+    grid-area: itemsrunes;
+  }
+
+  .items--title--prizes {
+    grid-area: itemstitleprizes;
+  }
+
+  .items--prizes {
+    grid-area: itemsprizes;
+  }
+
+  .item--select--action {
+    grid-area: itemselectaction;
   }
 }

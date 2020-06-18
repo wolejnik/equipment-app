@@ -1,33 +1,22 @@
 <div class="container">
   <div class="grid">
-    <ng-container *ngIf="itemSelected; else emptyItem">
-      <div class="grid__item">
+    <ng-container *ngIf="itemSelected">
+      <div class="grid__item item--title">
         <h1 class="grid__item--title">{{itemSelected.name}}</h1>
       </div>
     </ng-container>
-    <ng-template #emptyItem>
-      <div class="grid__item">
-        <h1 class="grid__item--title">Wybierz przedmiot</h1>
-      </div>
-    </ng-template>
-    <div class="grid__item">
+    <div class="grid__item items--title--chests">
       <h3 class="grid__item--subtitle">Skrzynie</h3>
     </div>
-    <ng-container *ngIf="itemSelected; else EmptyItemImg">
-      <div class="grid__item--image">
+    <ng-container *ngIf="itemSelected">
+      <div class="grid__item--image item--select">
         <figure class="is-256x256">
           <img src="{{itemSelected.img}}" width="256" height="256" alt="" srcset="">
         </figure>
       </div>
     </ng-container>
-    <ng-template #EmptyItemImg>
-      <div class="grid__item--image">
-        <figure class="is-256x256">
-        </figure>
-      </div>
-    </ng-template>
 
-    <div class="grid__container__items">
+    <div class="grid__container__items items--chests">
       <ng-container *ngFor="let item of itemsArray">
         <div class="grid__container__items__element" *ngIf="item.type === 0">
           <img class="grid__container__items__element--border" src="{{item.img}}"
@@ -40,10 +29,10 @@
           sizes="" srcset="">
       </div>
     </div>
-    <div class="grid__item">
+    <div class="grid__item items--title--runes">
       <h3 class="grid__item--subtitle">Runy</h3>
     </div>
-    <div class="grid__container__items">
+    <div class="grid__container__items items--runes">
       <ng-container *ngFor="let item of itemsArray">
         <div class="grid__container__items__element" *ngIf="item.type === 1">
           <img class="grid__container__items__element--border" src="{{item.img}}" width="48" height="48" alt="" sizes=""
@@ -55,20 +44,20 @@
           sizes="" srcset="">
       </div>
     </div>
-    <div class="grid__item">
+    <div class="grid__item items--title--prizes">
       <h3 class="grid__item--subtitle">Nagrody</h3>
       <h3 class="grid__item--subsubtitle">Wartość : {{amountPrize}} $</h3>
     </div>
 
     <ng-container *ngIf="itemSelected && itemSelected.type === 0">
-      <div class="grid__item">
+      <div class="grid__item item--select--action">
         <div class="grid__item__button">
           <button class="grid__item__button--open">Otwórz skrzynię</button>
         </div>
       </div>
     </ng-container>
     <ng-container *ngIf="itemSelected && itemSelected.type === 2">
-      <div class="grid__item">
+      <div class="grid__item items--prizes">
         <div class="grid__item__button">
           <button class="grid__item__button--open">{{itemSelected.key}}</button>
         </div>
