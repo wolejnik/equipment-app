@@ -1,47 +1,58 @@
 <div class="container">
   <div class="grid">
-    <div class="grid__item">
-      <h1 class="grid__item--title">Title</h1>
-    </div>
+    <ng-container *ngIf="itemSelected; else emptyItem">
+      <div class="grid__item">
+        <h1 class="grid__item--title">{{itemSelected.name}}</h1>
+      </div>
+    </ng-container>
+    <ng-template #emptyItem>
+      <div class="grid__item">
+        <h1 class="grid__item--title">Wybierz przedmiot</h1>
+      </div>
+    </ng-template>
     <div class="grid__item">
       <h3 class="grid__item--subtitle">Skrzynie</h3>
     </div>
-    <div class="grid__item--image">
-      <figure class="is-256x256">
-        <img src="../assets/sample-chest.png" width="256" height="256" alt="" srcset="">
-      </figure>
-    </div>
-    <div class="grid-container--fit">
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-chest.png" width="48" height="48" alt="" sizes="" srcset=""
-          (click)="selectItem(item.id)">
+    <ng-container *ngIf="itemSelected; else EmptyItemImg">
+      <div class="grid__item--image">
+        <figure class="is-256x256">
+          <img src="{{itemSelected.img}}" width="256" height="256" alt="" srcset="">
+        </figure>
       </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-chest.png" width="48" height="48" alt="" sizes="" srcset=""
-          (click)="selectItem(item.id)">
+    </ng-container>
+    <ng-template #EmptyItemImg>
+      <div class="grid__item--image">
+        <figure class="is-256x256">
+        </figure>
       </div>
-      <div class="test">
-        <img class="button--add" src="../assets/add.png" width="48" height="48" alt="" sizes="" srcset="">
+    </ng-template>
+
+    <div class="grid__container__items">
+      <ng-container *ngFor="let item of itemsArray">
+        <div class="grid__container__items__element" *ngIf="item.type === 0">
+          <img class="grid__container__items__element--border" src="{{item.img}}"
+            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="48"
+            height="48" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
+        </div>
+      </ng-container>
+      <div class="grid__container__items__element">
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+          sizes="" srcset="">
       </div>
     </div>
     <div class="grid__item">
       <h3 class="grid__item--subtitle">Runy</h3>
     </div>
-    <div class="grid-container--fit">
-      <div class="test">
-        <img class="grid-element" src="../assets/dagaz-2644493_640.png" width="48" height="48" alt="" sizes=""
-          srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/dagaz-2644493_640.png" width="48" height="48" alt="" sizes=""
-          srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/dagaz-2644493_640.png" width="48" height="48" alt="" sizes=""
-          srcset="">
-      </div>
-      <div class="test">
-        <img class="button--add" src="../assets/add.png" width="48" height="48" alt="" sizes="" srcset="">
+    <div class="grid__container__items">
+      <ng-container *ngFor="let item of itemsArray">
+        <div class="grid__container__items__element" *ngIf="item.type === 1">
+          <img class="grid__container__items__element--border" src="{{item.img}}" width="48" height="48" alt="" sizes=""
+            srcset="">
+        </div>
+      </ng-container>
+      <div class="grid__container__items__element">
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+          sizes="" srcset="">
       </div>
     </div>
     <div class="grid__item">
@@ -49,36 +60,33 @@
       <h3 class="grid__item--subsubtitle">Wartość : {{amountPrize}} $</h3>
     </div>
 
-    <div class="grid__item">
-      <div class="grid__item__button">
-        <button class="grid__item__button--open">Otwórz skrzynię</button>
+    <ng-container *ngIf="itemSelected && itemSelected.type === 0">
+      <div class="grid__item">
+        <div class="grid__item__button">
+          <button class="grid__item__button--open">Otwórz skrzynię</button>
+        </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-container *ngIf="itemSelected && itemSelected.type === 2">
+      <div class="grid__item">
+        <div class="grid__item__button">
+          <button class="grid__item__button--open">{{itemSelected.key}}</button>
+        </div>
+      </div>
+    </ng-container>
 
-    <div class="grid-container--fit">
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="grid-element" src="../assets/sample-reward.png" width="48" height="48" alt="" sizes="" srcset="">
-      </div>
-      <div class="test">
-        <img class="button--add" src="../assets/add.png" width="48" height="48" alt="" sizes="" srcset="">
+
+    <div class="grid__container__items">
+      <ng-container *ngFor="let item of itemsArray">
+        <div class="grid__container__items__element" *ngIf="item.type === 2">
+          <img class="grid__container__items__element--border" src="{{item.img}}"
+            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="48"
+            height="48" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
+        </div>
+      </ng-container>
+      <div class="grid__container__items__element">
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+          sizes="" srcset="">
       </div>
     </div>
   </div>
