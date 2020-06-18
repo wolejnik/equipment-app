@@ -161,7 +161,7 @@ h6 {
 @media (max-width: 768px) {
   .grid {
     display: grid;
-    grid-template-columns: 400px;
+    grid-template-columns: auto;
     grid-template-rows: repeat(9, auto);
     border-radius: 4px;
     grid-row-gap: 10px;
