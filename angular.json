@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "equipment-app"
+    }
+  },
+  "defaultProject": "equipment-app",
+  "cli": {
+    "analytics": false
+  }
 }
