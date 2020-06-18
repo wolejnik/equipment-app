@@ -1,1 +1,216 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+  --grey: #757575;
+  --black: #272727;
+  --green: #00ecb3;
+  --green-hover: #4c8a4e;
+  --background: #222c30;
+  --background2: #1a2326;
+  --gold: #e5ac04;
+  --size-1: 21px;
+  --size-2: 16px;
+  --size-3: 13px;
+  --size-4: 10px;
+  --size-5: 8px;
+}
+
+
+
+html {
+  box-sizing: border-box;
+  font-size: var(--size-4);
+  color: var(--black);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  font-family: 'Open Sans', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 50px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 5px 0;
+}
+
+.is-256x256 {
+  width: 256px;
+  height: 256px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(25vw, 1fr));
+  grid-template-rows: repeat(6, auto);
+  border-radius: 4px;
+  background-color: var(--background);
+
+  &__item {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+
+    &--title {
+      font-size: 20px;
+      margin-top: 13px;
+      color: whitesmoke;
+    }
+
+    &--subtitle {
+      font-size: 12px;
+      color: var(--green);
+      justify-self: center;
+    }
+
+    &--subsubtitle {
+      font-size: 8px;
+      color: var(--grey);
+      justify-self: center;
+    }
+
+    &--image {
+      grid-row: span 4;
+      justify-self: center;
+
+    }
+
+    &__button {
+
+      &--open {
+        background-color: var(--green);
+        /* Green */
+        color: var(--black);
+        font-weight: 800;
+        font-size: 150%;
+        transition-duration: 0.4s;
+        padding: 10px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+
+      &--open:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      &--open:active {
+        background-color: var(--green-hover);
+        opacity: 0.8;
+      }
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(auto, 70px));
+    }
+  }
+
+
+}
+
+.grid__container__items {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 1.3125rem;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  &__element {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    &--border {
+      border: 2px solid var(--grey);
+      cursor: pointer;
+
+      &--selected {
+        border: 2px solid var(--gold);
+      }
+    }
+
+    &__button--add {
+      border: 2px solid var(--green);
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(9, auto);
+    border-radius: 4px;
+    grid-row-gap: 10px;
+    background-color: var(--background);
+    grid-template-areas:
+      "itemtitle"
+      "itemselect"
+      "itemselectaction"
+      "itemstitlechests"
+      "itemschests"
+      "itemstitlerunes"
+      "itemsrunes"
+      "itemstitleprizes"
+      "itemsprizes"
+  }
+
+  .item--title {
+    grid-area: itemtitle;
+  }
+
+  .item--select {
+    grid-area: itemselect;
+  }
+
+  .items--title--chests {
+    grid-area: itemstitlechests;
+  }
+
+  .items--chests {
+    grid-area: itemschests;
+  }
+
+  .items--title--runes {
+    grid-area: itemstitlerunes;
+  }
+
+  .items--runes {
+    grid-area: itemsrunes;
+  }
+
+  .items--title--prizes {
+    grid-area: itemstitleprizes;
+  }
+
+  .items--prizes {
+    grid-area: itemsprizes;
+  }
+
+  .item--select--action {
+    grid-area: itemselectaction;
+  }
+}
