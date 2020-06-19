@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     this.getItems();
     this.getPrizesValue();
     this.getItem(1);
-    console.log('items', this.itemsArray, 'item', this.itemSelected, 'amountPrize', this.amountPrize);
   }
 
   getItem(id: number): void {
