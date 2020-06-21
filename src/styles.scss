@@ -8,10 +8,11 @@
   --background: #222c30;
   --background2: #1a2326;
   --gold: #e5ac04;
-  --size-1: 21px;
-  --size-2: 16px;
-  --size-3: 13px;
-  --size-4: 10px;
+  --size-1: 34px;
+  --size-2: 21px;
+  --size-3: 16px;
+  --size-4: 13px;
+  --size-5: 10px;
   --size-5: 8px;
 }
 
@@ -32,7 +33,7 @@ html {
 }
 
 body {
-  margin: 50px;
+  margin: 0px;
 }
 
 h1,
@@ -45,21 +46,22 @@ h6 {
 }
 
 .is-256x256 {
-  width: 256px;
-  height: 256px;
+  width: 360px;
+  height: 360px;
 }
 
 .container {
   display: flex;
   justify-content: center;
   justify-items: center;
+  height: 100vh;
 }
 
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(25vw, 1fr));
-  grid-template-rows: repeat(6, auto);
+  grid-template-columns: repeat(2, minmax(50vw, 1fr));
+  grid-template-rows: repeat(6, 1fr);
   border-radius: 4px;
   background-color: var(--background);
 
@@ -70,26 +72,28 @@ h6 {
 
 
     &--title {
-      font-size: 20px;
+      font-size: var(--size-1);
       margin-top: 13px;
       color: whitesmoke;
     }
 
     &--subtitle {
-      font-size: 12px;
+      font-size: var(--size-2);
       color: var(--green);
       justify-self: center;
     }
 
     &--subsubtitle {
-      font-size: 8px;
+      font-size: var(--size-3);
       color: var(--grey);
       justify-self: center;
     }
 
     &--image {
+      display: flex;
       grid-row: span 4;
       justify-self: center;
+      align-items: center;
 
     }
 
@@ -100,12 +104,11 @@ h6 {
         /* Green */
         color: var(--black);
         font-weight: 800;
-        font-size: 150%;
+        font-size: var(--size-2);
         transition-duration: 0.4s;
-        padding: 10px 32px;
+        padding: 20px 48px;
         text-align: center;
         display: inline-block;
-        font-size: 16px;
         cursor: pointer;
         border: none;
         outline: none;
@@ -135,7 +138,7 @@ h6 {
   grid-template-columns: repeat(4, auto);
   grid-gap: 1.3125rem;
   padding: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.75rem;
 
   &__element {
     display: grid;
@@ -159,6 +162,11 @@ h6 {
 }
 
 @media (max-width: 768px) {
+
+  .container {
+    height: 100%;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: auto;

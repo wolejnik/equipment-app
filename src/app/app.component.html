@@ -11,7 +11,7 @@
     <ng-container *ngIf="itemSelected">
       <div class="grid__item--image item--select">
         <figure class="is-256x256">
-          <img src="{{itemSelected.img}}" width="256" height="256" alt="" srcset="">
+          <img src="{{itemSelected.img}}" width="360" height="360" alt="" srcset="">
         </figure>
       </div>
     </ng-container>
@@ -20,12 +20,12 @@
       <ng-container *ngFor="let item of itemsArray">
         <div class="grid__container__items__element" *ngIf="item.type === 0">
           <img class="grid__container__items__element--border" src="{{item.img}}"
-            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="48"
-            height="48" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
+            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="96"
+            height="96" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
         </div>
       </ng-container>
       <div class="grid__container__items__element">
-        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="96" height="96" alt=""
           sizes="" srcset="">
       </div>
     </div>
@@ -35,12 +35,12 @@
     <div class="grid__container__items items--runes">
       <ng-container *ngFor="let item of itemsArray">
         <div class="grid__container__items__element" *ngIf="item.type === 1">
-          <img class="grid__container__items__element--border" src="{{item.img}}" width="48" height="48" alt="" sizes=""
+          <img class="grid__container__items__element--border" src="{{item.img}}" width="96" height="96" alt="" sizes=""
             srcset="">
         </div>
       </ng-container>
       <div class="grid__container__items__element">
-        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="96" height="96" alt=""
           sizes="" srcset="">
       </div>
     </div>
@@ -69,12 +69,12 @@
       <ng-container *ngFor="let item of itemsArray">
         <div class="grid__container__items__element" *ngIf="item.type === 2">
           <img class="grid__container__items__element--border" src="{{item.img}}"
-            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="48"
-            height="48" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
+            [ngClass]="{'grid__container__items__element--border--selected': item.id === itemSelected.id}" width="96"
+            height="96" alt="" sizes="" srcset="" (click)="selectItem(item.id)">
         </div>
       </ng-container>
       <div class="grid__container__items__element">
-        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="48" height="48" alt=""
+        <img class="grid__container__items__element__button--add" src="../assets/add.png" width="96" height="96" alt=""
           sizes="" srcset="">
       </div>
     </div>
