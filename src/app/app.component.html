@@ -52,7 +52,7 @@
     <ng-container *ngIf="itemSelected && itemSelected.type === 0">
       <div class="grid__item item--select--action">
         <div class="grid__item__button">
-          <button class="grid__item__button--open">Otwórz skrzynię</button>
+          <button class="grid__item__button--open" (click)="deleteItem(itemSelected.id)">Otwórz skrzynię</button>
         </div>
       </div>
     </ng-container>
